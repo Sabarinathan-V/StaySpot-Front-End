@@ -1,0 +1,59 @@
+import React, { useContext, useState } from "react";
+import { Link, Navigate } from "react-router-dom";
+import axios from "axios";
+import { UserContext } from "../UserContext";
+
+function LoginPage() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [redirect, setRedirect] = useState(false);
+
+  const { setUser } = useContext(UserContext);
+
+  const loginUser = async (ev) => {
+    ev.preventDefault();
+    try {
+      const { data } = await axios.post("/login", { email, password });
+      setUser(data);
+      alert("Login successful");
+      setRedirect(true);
+    } catch (err) {
+      alert("Login failed");
+    }
+  };
+
+  if (redirect) {
+    return <Navigate to={"/"} />;
+  }
+
+  return (
+    <div className="mt-5 grow flex justify-around items-center">
+      <div className="mb-64">
+        <h1 className="text-4xl text-center mb-5">Login</h1>
+        <form className="max-w-md mx-auto" onSubmit={loginUser}>
+          <input
+            type="email"
+            placeholder="your@email.com"
+            value={email}
+            onChange={(ev) => setEmail(ev.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="password"
+            value={password}
+            onChange={(ev) => setPassword(ev.target.value)}
+          />
+          <button className="primary">Login</button>
+        </form>
+        <div className="text-center my-2 text-gray-500">
+          Don't have an account?{" "}
+          <Link className="text-black underline" to={"/register"}>
+            Register now
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default LoginPage;
