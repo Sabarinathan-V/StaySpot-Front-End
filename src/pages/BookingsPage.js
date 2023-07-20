@@ -21,7 +21,7 @@ export default function BookingsPage() {
         {bookings?.length > 0 &&
           bookings.map((booking, index) => (
             <Link to={`/account/bookings/${booking._id}`} key={index}>
-              <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-2 sm:gap-4 bg-gray-200 rounded-2xl overflow-hidden p-4 sm:p-0">
+              <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-2 sm:gap-4 mt-2 sm:mt-4 bg-gray-200 rounded-2xl overflow-hidden p-4 sm:p-0">
                 <div className="w-full sm:w-48">
                   <PlaceImg place={booking.place} />
                 </div>

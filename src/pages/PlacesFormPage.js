@@ -17,7 +17,7 @@ export default function PlacesFormPage(){
     const [extraInfo, setExtraInfo] = useState("");
     const [checkIn, setCheckIn] = useState("");
     const [checkOut, setCheckOut] = useState("");
-    const [maxGuest, setMaxGuest] = useState(0);
+    const [maxGuest, setMaxGuest] = useState('');
     const [price, setPrice] = useState(100)
     const [redirect, setRedirect] = useState(false);
 
@@ -92,6 +92,7 @@ export default function PlacesFormPage(){
             placeholder="title, for example: my lovely apartment"
             value={title}
             onChange={(event) => setTitle(event.target.value)}
+            required
           />
 
           {preInput("Address", "Address to this place")}
@@ -100,12 +101,14 @@ export default function PlacesFormPage(){
             placeholder="address"
             value={address}
             onChange={(event) => setAddress(event.target.value)}
+            required
           />
 
           {preInput("Photos", "more = better")}
           <PhotosUploader           
             addedPhotos={addedPhotos}
             setAddedPhotos={setAddedPhotos}
+
           />
 
           {preInput("Description", "description of this place")}
@@ -113,6 +116,7 @@ export default function PlacesFormPage(){
             placeholder="add description here"
             value={description}
             onChange={(event) => setDescription(event.target.value)}
+            required
           />
 
           {preInput("Perks", "select all the perks of your place")}
@@ -137,6 +141,7 @@ export default function PlacesFormPage(){
                 placeholder="00:00"
                 value={checkIn}
                 onChange={(event) => setCheckIn(event.target.value)}
+                required
               />
             </div>
             <div>
@@ -146,6 +151,7 @@ export default function PlacesFormPage(){
                 placeholder="00:00"
                 value={checkOut}
                 onChange={(event) => setCheckOut(event.target.value)}
+                required
               />
             </div>
             <div>
@@ -154,7 +160,7 @@ export default function PlacesFormPage(){
                 type="number"
                 placeholder="0"
                 value={maxGuest}
-                onChange={(event) => setMaxGuest(event.target.value)}
+                onChange={(ev) => setMaxGuest(ev.target.value)}
               />
             </div>
             <div>
@@ -164,6 +170,7 @@ export default function PlacesFormPage(){
                 placeholder="0"
                 value={price}
                 onChange={(event) => setPrice(event.target.value)}
+                required
               />
             </div>
           </div>
