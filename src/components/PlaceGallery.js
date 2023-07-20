@@ -55,7 +55,7 @@ export default function PlaceGallery({ place }) {
                 <img
                   onClick={() => setShowAllPhotos(true)}
                   className="aspect-square cursor-pointer object-cover w-full h-full"
-                  src={"https://stayspot-backend.onrender.com/" + place.photos[0]}
+                  src={"https://stayspot-backend.onrender.com/uploads/" + place.photos[0]}
                   alt=""
                 />
               </div>
