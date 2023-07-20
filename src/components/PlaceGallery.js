@@ -35,7 +35,7 @@ export default function PlaceGallery({ place }) {
               <div key={index}>
                 <img
                   className="w-full"
-                  src={"http://localhost:4000/uploads/" + photo}
+                  src={"https://stayspot-backend.onrender.com/uploads/" + photo}
                   alt=""
                 />
               </div>
@@ -55,7 +55,7 @@ export default function PlaceGallery({ place }) {
                 <img
                   onClick={() => setShowAllPhotos(true)}
                   className="aspect-square cursor-pointer object-cover w-full h-full"
-                  src={"http://localhost:4000/uploads/" + place.photos[0]}
+                  src={"https://stayspot-backend.onrender.com/" + place.photos[0]}
                   alt=""
                 />
               </div>
@@ -66,7 +66,7 @@ export default function PlaceGallery({ place }) {
               <img
                 onClick={() => setShowAllPhotos(true)}
                 className="aspect-square cursor-pointer object-cover"
-                src={"http://localhost:4000/uploads/" + place.photos[1]}
+                src={"https://stayspot-backend.onrender.com/uploads/" + place.photos[1]}
                 alt=""
               />
             )}
@@ -75,7 +75,7 @@ export default function PlaceGallery({ place }) {
                 <img
                   onClick={() => setShowAllPhotos(true)}
                   className="aspect-square cursor-pointer object-cover relative top-2"
-                  src={"http://localhost:4000/uploads/" + place.photos[2]}
+                  src={"https://stayspot-backend.onrender.com/uploads/" + place.photos[2]}
                   alt=""
                 />
               </div>
